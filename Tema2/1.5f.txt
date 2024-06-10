@@ -1,0 +1,30 @@
+#
+# 
+#
+Sigma:
+a
+b
+. . .
+End
+#
+# 
+#
+States:
+q1, S
+q2
+q3
+q4, F
+End
+#
+# 
+#
+Transitions:
+q1, a, q2
+q1, b, q3
+q2, a, q2
+q2, b, q4
+q3, a, q4
+q3, b, q3
+q4, a, q4
+q4, b, q4
+End
