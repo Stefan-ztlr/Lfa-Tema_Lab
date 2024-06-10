@@ -1,5 +1,4 @@
 import re
-import fileinput
 import sys
 
 class CFG:
@@ -30,10 +29,13 @@ class CFG:
             self.rules[lhs] = rhs_alternatives
     
     def validate(self):
+       
         if not self.rules:
             raise ValueError("No rules found in the CFG.")
+    
         if 'S' not in self.rules:
             raise ValueError("The start symbol 'S' is not defined.")
+      
         print("CFG is valid.")
     
     def __str__(self):
@@ -42,6 +44,7 @@ class CFG:
             rhs = " | ".join([" ".join(rhs) for rhs in rhs_list])
             result.append(f"{lhs} -> {rhs}")
         return "\n".join(result)
+
 
 cfg = CFG()
 cfg.load(sys.argv[1])  
@@ -58,6 +61,7 @@ class CFGCreator:
     def save_cfg(self, filename):
         with open(filename, 'w') as file:
             file.write(str(self.cfg))
+
 
 rules = [
     "S -> NP VP",
